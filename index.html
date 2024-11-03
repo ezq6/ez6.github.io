@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Ezequiel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: red;
+            overflow: hidden;
+        }
+        .video-background, .image-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: brightness(0.5) grayscale(0.3) contrast(1.2);
+        }
+        .image-background {
+            display: none;
+            background: url('foto.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+        .social-sidebar {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 19px;
+        }
+        .social-sidebar a {
+            color: red;
+            text-decoration: none;
+            position: relative;
+            padding: 5px 10px;
+            transition: color 0.3s;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        .social-sidebar a:hover {
+            color: rgba(255, 0, 0, 0.8);
+        }
+        .social-sidebar a::before {
+            content: '[';
+            margin-right: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .social-sidebar a::after {
+            content: ']';
+            margin-left: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .social-sidebar a:hover::before,
+        .social-sidebar a:hover::after {
+            opacity: 1;
+        }
+        .description {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: rgba(255, 0, 0, 0.8);
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        @media (max-width: 768px) {
+            .video-background {
+                display: none;
+            }
+            .image-background {
+                display: block;
+                background-color: white;
+            }
+        }
+    </style>
+    <script>
+        function copyEmail() {
+            const email = "ezq@live.com";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copiado: " + email);
+            }).catch(err => {
+                console.error("Error al copiar el email: ", err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+    <div class="image-background"></div>
+    <div class="container">
+        <div class="social-sidebar">
+            <a href="https://www.tiktok.com/@gb3" target="_blank">TikTok</a>
+            <a href="https://x.com/yo6o" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/_ez6" target="_blank">Instagram</a>
+            <a href="https://kik.me/rep" target="_blank">Kik</a>
+            <a href="mailto:ezq@live.com" onclick="copyEmail(); return false;">ezq@live.com</a>
+        </div>
+        <div class="description">
+            Todos los derechos reservados @_ez6.
+        </div>
+    </div>
+</body>
+</html>
